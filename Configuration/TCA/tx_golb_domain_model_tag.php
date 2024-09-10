@@ -66,7 +66,7 @@ return [
                     ['', 0],
                 ],
                 'foreign_table' => 'tx_golb_domain_model_tag',
-                'foreign_table_where' => 'AND tx_golb_domain_model_tag.pid=###CURRENT_PID### AND tx_golb_domain_model_tag.sys_language_uid IN (-1,0)',
+                'foreign_table_where' => 'AND {#tx_golb_domain_model_tag}.{#pid}=###CURRENT_PID### AND {#tx_golb_domain_model_tag}.{#sys_language_uid} IN (-1,0)',
                 'default' => 0,
             ]
         ],
@@ -140,7 +140,7 @@ return [
                 'MM' => 'tx_golb_page_tag_mm',
                 'MM_opposite_field' => 'pages',
                 'foreign_table' => 'pages',
-                'foreign_table_where' => ' AND pages.doktype = 41 ORDER BY pages.title',
+                'foreign_table_where' => ' AND {#pages}.{#doktype} = 41 AND ({#pages}.{#sys_language_uid} IN (-1,0) OR {#pages}.{#l10n_parent} = 0) ORDER BY pages.title',
                 'size' => 10,
                 'minitems' => 0,
                 'maxitems' => 99,
