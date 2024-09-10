@@ -117,11 +117,18 @@ return [
             'exclude' => false,
             'label' => $ll . 'tx_golb_domain_model_tag.slug',
             'config' => [
-                'type' => 'input',
-                'size' => 30,
-                'behaviour' => [
-                    'allowLanguageSynchronization' => true,
+                'type' => 'slug',
+                'size' => 50,
+                'generatorOptions' => [
+                    'fields' => [
+                        'title',
+                    ],
+                    'fieldSeparator' => '/',
+                    'prefixParentPageSlug' => true,
                 ],
+                'fallbackCharacter' => '-',
+                'eval' => 'uniqueInSite',
+                'default' => '',
             ]
         ],
         'pages' => [
