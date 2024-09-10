@@ -98,6 +98,7 @@ return [
                 'behaviour' => [
                     'allowLanguageSynchronization' => true,
                 ],
+                'eval' => 'uniqueInPid',
             ]
         ],
         'description' => [
