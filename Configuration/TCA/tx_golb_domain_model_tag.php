@@ -138,7 +138,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectMultipleSideBySide',
                 'MM' => 'tx_golb_page_tag_mm',
-                'MM_opposite_field' => 'pages',
+                'MM_opposite_field' => 'tx_golb_tags',
                 'foreign_table' => 'pages',
                 'foreign_table_where' => ' AND {#pages}.{#doktype} = ' . \Greenfieldr\Golb\Constants::BLOG_POST_DOKTYPE . ' AND ({#pages}.{#sys_language_uid} IN (-1,0) OR {#pages}.{#l10n_parent} = 0) ORDER BY pages.title',
                 'size' => 10,
