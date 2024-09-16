@@ -59,6 +59,8 @@ class PostsDemand implements DemandInterface
      */
     protected array $tags = [];
 
+    protected string|null $tag = null;
+
     /**
      * @var int|null
      */
@@ -233,12 +235,17 @@ class PostsDemand implements DemandInterface
      */
     public function getTags(): array
     {
+        if($this->tag !== null) {
+            $this->tags[] = $this->tag;
+        }
+
         return $this->tags;
     }
-    
-    public function setTag(string $tag): void
+
+    public function setTag(string $tag): PostsDemand
     {
-        $this->setTags([$tag]);
+        $this->tag = $tag;
+        return $this;
     }
 
     /**
@@ -256,7 +263,7 @@ class PostsDemand implements DemandInterface
      */
     public function hasTags(): bool
     {
-        return count($this->tags) > 0;
+        return count($this->tags) > 0 || $this->tag !== null;
     }
 
     /**
