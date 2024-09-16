@@ -18,6 +18,7 @@ return [
         'default_sortby' => 'ORDER BY sorting',
         'sortby' => 'sorting',
         'delete' => 'deleted',
+        'searchFields' => 'title',
         'enablecolumns' => [
             'disabled' => 'hidden',
         ],
