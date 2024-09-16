@@ -235,6 +235,11 @@ class PostsDemand implements DemandInterface
     {
         return $this->tags;
     }
+    
+    public function setTag(string $tag): void
+    {
+        $this->setTags([$tag]);
+    }
 
     /**
      * @param array $tags
