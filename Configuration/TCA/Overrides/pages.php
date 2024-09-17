@@ -108,15 +108,11 @@ $boot = function () {
                 'renderType' => 'selectMultipleSideBySide',
                 'MM' => 'tx_golb_page_tag_mm',
                 'foreign_table' => 'tx_golb_domain_model_tag',
-                'foreign_table_where' => ' AND ({#tx_golb_domain_model_tag}.{#sys_language_uid} IN (-1,0) OR {#tx_golb_domain_model_tag}.{#l10n_parent} = 0) ORDER BY tx_golb_domain_model_tag.title',
+                'foreign_table_where' => ' AND {#tx_golb_domain_model_tag}.{#sys_language_uid} IN (-1,0) ORDER BY tx_golb_domain_model_tag.title',
                 'size' => 10,
                 'minitems' => 0,
                 'maxitems' => 99,
                 'multiple' => false,
-
-                'behaviour' => [
-                    'allowLanguageSynchronization' => true,
-                ],
             ],
         ],
         'tx_golb_archived' => [
