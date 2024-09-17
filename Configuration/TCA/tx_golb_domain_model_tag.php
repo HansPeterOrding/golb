@@ -140,16 +140,13 @@ return [
                 'renderType' => 'selectMultipleSideBySide',
                 'MM' => 'tx_golb_page_tag_mm',
                 'MM_opposite_field' => 'tx_golb_tags',
+                'MM_oppositeUsage' => [],
                 'foreign_table' => 'pages',
-                'foreign_table_where' => ' AND {#pages}.{#doktype} = ' . \Greenfieldr\Golb\Constants::BLOG_POST_DOKTYPE . ' AND ({#pages}.{#sys_language_uid} IN (-1,0) OR {#pages}.{#l10n_parent} = 0) ORDER BY pages.title',
+                'foreign_table_where' => ' AND {#pages}.{#doktype} = ' . \Greenfieldr\Golb\Constants::BLOG_POST_DOKTYPE . ' ORDER BY pages.title',
                 'size' => 10,
                 'minitems' => 0,
                 'maxitems' => 99,
                 'multiple' => false,
-
-                'behaviour' => [
-                    'allowLanguageSynchronization' => true,
-                ],
             ],
         ],
     ],
