@@ -31,7 +31,7 @@ class BaseController extends ActionController
      *
      * @return void
      */
-    public function initializeAction()
+    public function initializeAction(): void
     {
         $this->contentObject = $this->configurationManager->getContentObject();
     }

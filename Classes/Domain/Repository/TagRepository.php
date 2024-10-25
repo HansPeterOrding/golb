@@ -35,7 +35,7 @@ class TagRepository extends Repository
         'uid' => QueryInterface::ORDER_ASCENDING
     ];
 
-    public function initializeObject()
+    public function initializeObject(): void
     {
         $this->defaultQuerySettings = GeneralUtility::makeInstance(Typo3QuerySettings::class);
         $this->defaultQuerySettings->setRespectStoragePage(false);

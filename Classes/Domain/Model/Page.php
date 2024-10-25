@@ -1150,7 +1150,7 @@ class Page extends AbstractEntity
     /**
      * @param ObjectStorage $contentElements
      */
-    public function setContentElements(ObjectStorage $contentElements)
+    public function setContentElements(ObjectStorage $contentElements): void
     {
         $this->contentElements = $contentElements;
     }

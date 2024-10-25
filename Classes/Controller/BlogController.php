@@ -72,7 +72,7 @@ class BlogController extends BaseController
      * @return void
      * @throws NoSuchArgumentException
      */
-    public function initializeAction()
+    public function initializeAction(): void
     {
         parent::initializeAction();
 

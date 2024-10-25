@@ -49,7 +49,7 @@ class RelatedPostsViewHelper extends AbstractViewHelper
         $this->pageRepository = $pageRepository;
     }
 
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         $this->registerArgument('posts', 'array', 'The list of root pages to search in', true);
         $this->registerArgument('currentPost', Page::class, 'The currently displayed blog post.', true);

@@ -68,14 +68,14 @@ $boot = function () {
             'exclude' => 0,
             'label' => $ll . 'pages.tx_golb_author_image',
             'displayCond' => 'FIELD:doktype:=:'.\Greenfieldr\Golb\Constants::BLOG_POST_DOKTYPE,
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('authorImage', [
-                    'appearance' => [
-                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
-                    ],
-                    'minitems' => 0,
-                    'maxitems' => 1,
-                ]
-            )
+            'config' => [
+                'type' => 'file',
+                'appearance' => [
+                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference'
+                ],
+                'minitems' => 0,
+                'maxitems' => 1,
+            ]
         ],
         'tx_golb_subpages' => [
             'exclude' => 0,
@@ -92,11 +92,9 @@ $boot = function () {
             'label' => $ll . 'pages.tx_golb_publish_date',
             'displayCond' => 'FIELD:doktype:=:'.\Greenfieldr\Golb\Constants::BLOG_POST_DOKTYPE,
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
+                'type' => 'datetime',
                 'size' => '13',
-                'eval' => 'datetime',
-                'default' => '0'
+                'default' => 0
             ]
         ],
         'tx_golb_tags' => [
@@ -135,10 +133,10 @@ $boot = function () {
         ],
     ];
 
-    $GLOBALS['PAGES_TYPES'][\Greenfieldr\Golb\Constants::BLOG_POST_DOKTYPE] = [
+    \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\DataHandling\PageDoktypeRegistry::class)->add(\Greenfieldr\Golb\Constants::BLOG_POST_DOKTYPE, [
         'type' => 'web',
         'allowedTables' => '*',
-    ];
+    ]);
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('pages', $tempColumns);
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addToAllTCAtypes(

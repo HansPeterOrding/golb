@@ -39,17 +39,13 @@ return [
         'crdate' => [
             'label' => 'crdate',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
+                'type' => 'datetime',
             ]
         ],
         'tstamp' => [
             'label' => 'tstamp',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
-                'eval' => 'datetime',
+                'type' => 'datetime',
             ]
         ],
         'sys_language_uid' => [
@@ -64,7 +60,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['', 0],
+                    ['label' => '', 'value' => 0],
                 ],
                 'foreign_table' => 'tx_golb_domain_model_tag',
                 'foreign_table_where' => 'AND {#tx_golb_domain_model_tag}.{#pid}=###CURRENT_PID### AND {#tx_golb_domain_model_tag}.{#sys_language_uid} IN (-1,0)',

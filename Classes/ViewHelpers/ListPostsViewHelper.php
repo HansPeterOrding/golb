@@ -34,7 +34,7 @@ class ListPostsViewHelper extends AbstractViewHelper
     /**
      * @param PageRepository $pageRepository
      */
-    public function injectPageRepository(PageRepository $pageRepository)
+    public function injectPageRepository(PageRepository $pageRepository): void
     {
         $this->pageRepository = $pageRepository;
     }
