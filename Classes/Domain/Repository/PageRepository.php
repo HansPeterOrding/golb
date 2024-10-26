@@ -283,7 +283,7 @@ class PageRepository extends Repository
                 $queryBuilder->expr()->eq('pid', $queryBuilder->createNamedParameter($id, Connection::PARAM_INT)),
                 $queryBuilder->expr()->eq('sys_language_uid', 0)
             );
-        $statement = $queryBuilder->execute();
+        $statement = $queryBuilder->executeQuery();
         while ($row = $statement->fetchAssociative()) {
             $pageIdentifiers[] = $row['uid'];
             $this->aggregateAllPageIdentifiers($row['uid'], $pageIdentifiers);
