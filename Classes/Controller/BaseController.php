@@ -33,6 +33,6 @@ class BaseController extends ActionController
      */
     public function initializeAction(): void
     {
-        $this->contentObject = $this->configurationManager->getContentObject();
+        $this->contentObject = $this->request->getAttribute('currentContentObject');
     }
 }
