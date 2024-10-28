@@ -24,21 +24,14 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 class ListPostsViewHelper extends AbstractViewHelper
 {
 
-    /**
-     * Injects PageRepository
-     *
-     * @var PageRepository
-     */
-    protected PageRepository $pageRepository;
-
-    /**
-     * @param PageRepository $pageRepository
-     */
-    public function injectPageRepository(PageRepository $pageRepository): void
+    public function __construct(
+        /**
+         * Injects PageRepository
+         */
+        protected PageRepository $pageRepository
+    )
     {
-        $this->pageRepository = $pageRepository;
     }
-
     /**
      * This view helper return the golb page model of the related posts.
      *
@@ -52,7 +45,7 @@ class ListPostsViewHelper extends AbstractViewHelper
         if (!empty($posts)) {
 
             if (!is_array($posts)) {
-                $posts = explode(',', $posts);
+                $posts = explode(',', (string) $posts);
             }
 
             foreach ($posts as $post) {

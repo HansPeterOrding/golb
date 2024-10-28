@@ -31,16 +31,6 @@ class BlogController extends BaseController
 {
 
     /**
-     * @var PageRepository
-     */
-    protected PageRepository $pageRepository;
-
-    /**
-     * @var CategoryRepository
-     */
-    protected CategoryRepository $categoryRepository;
-
-    /**
      * Contains array with pages to load blog posts from
      *
      * @var array $pages
@@ -60,10 +50,8 @@ class BlogController extends BaseController
      * @param PageRepository $pageRepository
      * @param CategoryRepository $categoryRepository
      */
-    public function __construct(PageRepository $pageRepository, CategoryRepository $categoryRepository)
+    public function __construct(protected PageRepository $pageRepository, protected CategoryRepository $categoryRepository)
     {
-        $this->pageRepository = $pageRepository;
-        $this->categoryRepository = $categoryRepository;
     }
 
     /**
@@ -72,11 +60,12 @@ class BlogController extends BaseController
      * @return void
      * @throws NoSuchArgumentException
      */
+    #[\Override]
     public function initializeAction(): void
     {
         parent::initializeAction();
 
-        $this->pages = array_map('trim', explode(',', $this->contentObject->data['pages']));
+        $this->pages = array_map('trim', explode(',', (string) $this->contentObject->data['pages']));
         $this->categories = $this->categoryRepository->findByRelation($this->contentObject->data['uid'])->toArray();
 
         if($this->arguments->hasArgument('demand')) {

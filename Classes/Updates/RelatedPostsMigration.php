@@ -16,31 +16,26 @@ use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 #[UpgradeWizard('relatedPostsMigration')]
-final class RelatedPostsMigration implements UpgradeWizardInterface
+final readonly class RelatedPostsMigration implements UpgradeWizardInterface
 {
     protected const PAGES_TABLE = 'pages';
     protected const RELATED_POSTS_FIELD = 'tx_golb_related';
-
     public function __construct(
-        private readonly Registry $registry,
-        private readonly ConnectionPool $connectionPool,
+        private Registry $registry,
+        private ConnectionPool $connectionPool,
     ) {}
-
     public function getTitle(): string
     {
         return 'Migrates pages field for related posts';
     }
-
     public function getDescription(): string
     {
         return 'The relational field in pages table had a wrong data type due to historical reasons. Lets migrate it.';
     }
-
     public function getPrerequisites(): array
     {
         return [];
     }
-
     public function updateNecessary(): bool
     {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable(self::PAGES_TABLE);
@@ -51,7 +46,6 @@ final class RelatedPostsMigration implements UpgradeWizardInterface
                 $queryBuilder->expr()->isNull(self::RELATED_POSTS_FIELD)
             )->executeQuery()->rowCount() > 0);
     }
-
     public function executeUpdate(): bool
     {
         $queryBuilder = $this->connectionPool->getQueryBuilderForTable(self::PAGES_TABLE);

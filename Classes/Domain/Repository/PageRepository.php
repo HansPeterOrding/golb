@@ -91,23 +91,15 @@ class PageRepository extends Repository
                         } else {
                             $b = $b->getCreationDate();
                         }
-
-                        if($a == $b)
-                            return 0;
-
-                        return ($a < $b) ? -1 : 1;
+                        return $a <=> $b;
                     });
                     break;
                 case "author":
                     usort($this->posts, function ($a, $b) {
                         /* if no author value is present (''), it will be set as 'zz' to appear latest in array with objects */
-                        $al = ($a->getAuthorName() == '') ? 'zz' : substr(strtolower($a->getAuthorName()), 0, 2);
-                        $bl = ($a->getAuthorName() == '') ? 'zz' : substr(strtolower($b->getAuthorName()), 0, 2);
-                        if ($al == $bl) {
-                            return 0;
-                        }
-
-                        return ($al < $bl) ? -1 : 1;
+                        $al = ($a->getAuthorName() == '') ? 'zz' : substr(strtolower((string) $a->getAuthorName()), 0, 2);
+                        $bl = ($a->getAuthorName() == '') ? 'zz' : substr(strtolower((string) $b->getAuthorName()), 0, 2);
+                        return $al <=> $bl;
                     });
                     break;
             }
@@ -223,9 +215,7 @@ class PageRepository extends Repository
             }
         }
 
-        usort($posts, function($a, $b) {
-            return $b['amount'] <=> $a['amount'];
-        });
+        usort($posts, fn($a, $b) => $b['amount'] <=> $a['amount']);
 
         $this->posts = $posts;
         return array_slice($this->posts, 0, ($limit > 0 ? $limit : null));

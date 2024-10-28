@@ -33,20 +33,17 @@ class RelatedPostsViewHelper extends AbstractViewHelper
     protected $escapeOutput = false;
 
     /**
-     * Injects PageRepository
-     *
-     * @var PageRepository
-     */
-    protected PageRepository $pageRepository;
-
-    /**
      * Constructor.
      *
      * @param PageRepository $pageRepository
      */
-    public function __construct(PageRepository $pageRepository)
+    public function __construct(
+        /**
+         * Injects PageRepository
+         */
+        protected PageRepository $pageRepository
+    )
     {
-        $this->pageRepository = $pageRepository;
     }
 
     public function initializeArguments(): void
