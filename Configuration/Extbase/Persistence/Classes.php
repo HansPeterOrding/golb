@@ -14,26 +14,11 @@ return [
             'relatedPages' => [
                 'fieldName' => 'tx_golb_related'
             ],
-            'postsSorting' => [
-                'fieldName' => 'tx_golb_sorting'
-            ],
-            'limit' => [
-                'fieldName' => 'tx_golb_limit'
-            ],
-            'offset' => [
-                'fieldName' => 'tx_golb_offset'
-            ],
             'contentElements' => [
                 'fieldName' => 'tx_golb_content_elements'
             ],
             'subpages' => [
                 'fieldName' => 'tx_golb_subpages'
-            ],
-            'excludedPages' => [
-                'fieldName' => 'tx_golb_exclude'
-            ],
-            'subCategories' => [
-                'fieldName' => 'tx_golb_sub_categories'
             ],
             'publishDate' => [
                 'fieldName' => 'tx_golb_publish_date'
