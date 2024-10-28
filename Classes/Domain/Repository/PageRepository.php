@@ -96,6 +96,9 @@ class PageRepository extends Repository
                     break;
                 case "author":
                     usort($this->posts, function ($a, $b) {
+                        /** @var Page $a */
+                        /** @var Page $b */
+
                         /* if no author value is present (''), it will be set as 'zz' to appear latest in array with objects */
                         $al = ($a->getAuthorName() == '') ? 'zz' : substr(strtolower((string) $a->getAuthorName()), 0, 2);
                         $bl = ($a->getAuthorName() == '') ? 'zz' : substr(strtolower((string) $b->getAuthorName()), 0, 2);
@@ -120,20 +123,20 @@ class PageRepository extends Repository
                 $allCategories = array_merge($demand->getCategories(), [$demand->getCategory()]);
             }
 
-            /** @var Category $category */
             $this->traverseCategories($allCategories);
 
             foreach ($this->categories as $category) {
+                /** @var Category $category */
                 $categoryIds[] = $category->getUid();
             }
 
             $posts = $this->posts;
 
             $this->posts = [];
+            /**    @var Page $post */
             foreach ($posts as $post) {
-                /**    @var Page $post */
+                /** @var Category $cat */
                 foreach ($post->getCategories() as $cat) {
-                    /** @var Category $cat */
                     if (in_array($cat->getUid(), $categoryIds)) {
                         $this->posts[] = $post;
                     }
@@ -141,6 +144,7 @@ class PageRepository extends Repository
             }
         }
 
+        /** @var Page $post */
         foreach ($this->posts as $key => $post) {
             if (in_array($post->getUid(), $demand->getExcluded())) {
                     unset($this->posts[$key]);
@@ -233,9 +237,7 @@ class PageRepository extends Repository
             array_push($pages, ...$this->aggregateAllPageIdentifiers((int)$rootPage));
         }
 
-        $language = ($this->defaultQuerySettings) ?
-            $this->defaultQuerySettings->getLanguageAspect()->getId() :
-            GeneralUtility::makeInstance(Typo3QuerySettings::class)->getLanguageAspect()->getId();
+        $language = $this->defaultQuerySettings->getLanguageAspect()->getId();
 
         if($language > 0) {
             $queryBuilder = GeneralUtility::makeInstance(ConnectionPool::class)->getQueryBuilderForTable('pages');
@@ -292,7 +294,7 @@ class PageRepository extends Repository
     {
         /** @var Category $category */
         foreach ($categories as $category) {
-            if ($category->getSubCategories() > 0) {
+            if (count($category->getSubCategories()) > 0) {
                 self::traverseCategories($category->getSubCategories()->toArray());
             }
             $this->categories[] = $category;

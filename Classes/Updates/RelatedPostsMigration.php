@@ -21,7 +21,6 @@ final readonly class RelatedPostsMigration implements UpgradeWizardInterface
     protected const PAGES_TABLE = 'pages';
     protected const RELATED_POSTS_FIELD = 'tx_golb_related';
     public function __construct(
-        private Registry $registry,
         private ConnectionPool $connectionPool,
     ) {}
     public function getTitle(): string

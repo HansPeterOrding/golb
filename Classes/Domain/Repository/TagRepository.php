@@ -26,10 +26,7 @@ class TagRepository extends Repository
      * @var Typo3QuerySettings
      */
     protected $defaultQuerySettings;
-
-    /**
-     * @var array
-     */
+    
     protected $defaultOrderings = [
         'title' => QueryInterface::ORDER_ASCENDING,
         'uid' => QueryInterface::ORDER_ASCENDING

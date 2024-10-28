@@ -10,6 +10,7 @@ namespace Greenfieldr\Golb\Domain\Repository;
  * of the License, or any later version.
  */
 
+use TYPO3\CMS\Extbase\Persistence\Generic\Query;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
@@ -27,6 +28,7 @@ class CategoryRepository extends Repository
      */
     public function findByRelation(int $id, string $tableName = 'tt_content', string $fieldName = 'categories'): ?QueryResultInterface
     {
+        /** @var Query $query */
         $query = $this->createQuery();
         $query->statement(
             'SELECT * ' .
