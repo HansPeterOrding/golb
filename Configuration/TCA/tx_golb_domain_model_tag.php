@@ -19,8 +19,12 @@ return [
         'sortby' => 'sorting',
         'delete' => 'deleted',
         'searchFields' => 'title',
+        'editlock' => 'editlock',
         'enablecolumns' => [
             'disabled' => 'hidden',
+            'starttime' => 'starttime',
+            'endtime' => 'endtime',
+            'fe_group' => 'fe_group'
         ],
         'typeicon_classes' => [
             'default' => 'ext-golb-tag'
