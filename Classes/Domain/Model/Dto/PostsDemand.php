@@ -25,27 +25,27 @@ class PostsDemand implements DemandInterface
     const NON_TOP_POST_DEFAULT = false;
 
     /**
-     * @var bool|null
+     * @var ?bool
      */
     protected $archived = null;
 
     /**
-     * @var bool|null
+     * @var ?bool
      */
-    protected bool|null $nonArchived = null;
+    protected ?bool $nonArchived = null;
 
     /**
-     * @var bool|null
+     * @var ?bool
      */
-    protected bool|null $topPost = null;
+    protected ?bool $topPost = null;
 
     /**
-     * @var bool|null
+     * @var ?bool
      */
-    protected bool|null $nonTopPost = null;
+    protected ?bool $nonTopPost = null;
 
     /**
-     * @var array
+     * @var Category[]
      */
     protected array $categories = [];
 
@@ -55,36 +55,39 @@ class PostsDemand implements DemandInterface
     protected ?Category $category = null;
 
     /**
-     * @var array
+     * @var int[]
      */
     protected array $tags = [];
 
-    protected string|null $tag = null;
-
     /**
-     * @var int|null
+     * @var ?int
      */
-    protected int|null $limit = null;
+    protected ?int $tag = null;
 
     /**
-     * @var int|null
+     * @var ?int
      */
-    protected int|null $offset = null;
+    protected ?int $limit = null;
 
     /**
-     * @var array
+     * @var ?int
+     */
+    protected ?int $offset = null;
+
+    /**
+     * @var int[]
      */
     protected array $excluded = [];
 
     /**
-     * @var string|null
+     * @var ?string
      */
-    protected string|null $order = null;
+    protected ?string $order = null;
 
     /**
-     * @var string|null
+     * @var ?string
      */
-    protected string|null $orderDirection = null;
+    protected ?string $orderDirection = null;
 
     /**
      * @var int
@@ -104,6 +107,9 @@ class PostsDemand implements DemandInterface
         return ($this->isArchivedSet()) ? $this->archived : self::ARCHIVED_DEFAULT;
     }
 
+    /**
+     * @return bool
+     */
     public function isArchivedSet(): bool
     {
         return $this->archived !== null;
@@ -127,6 +133,9 @@ class PostsDemand implements DemandInterface
         return ($this->isNonArchivedSet()) ? $this->nonArchived : self::NON_ARCHIVED_DEFAULT;
     }
 
+    /**
+     * @return bool
+     */
     public function isNonArchivedSet(): bool
     {
         return $this->nonArchived !== null;
@@ -150,6 +159,9 @@ class PostsDemand implements DemandInterface
         return ($this->isTopPostSet()) ? $this->topPost : self::TOP_POST_DEFAULT;
     }
 
+    /**
+     * @return bool
+     */
     public function isTopPostSet(): bool
     {
         return $this->topPost !== null;
@@ -173,6 +185,9 @@ class PostsDemand implements DemandInterface
         return ($this->isNonTopPostSet()) ? $this->nonTopPost : self::NON_TOP_POST_DEFAULT;
     }
 
+    /**
+     * @return bool
+     */
     public function isNonTopPostSet(): bool
     {
         return $this->nonTopPost !== null;
@@ -189,7 +204,7 @@ class PostsDemand implements DemandInterface
     }
 
     /**
-     * @return array
+     * @return Category[]
      */
     public function getCategories(): array
     {
@@ -231,7 +246,7 @@ class PostsDemand implements DemandInterface
     }
 
     /**
-     * @return array
+     * @return int[]
      */
     public function getTags(): array
     {
@@ -242,14 +257,18 @@ class PostsDemand implements DemandInterface
         return $this->tags;
     }
 
-    public function setTag(string $tag): PostsDemand
+    /**
+     * @param int $tag
+     * @return PostsDemand
+     */
+    public function setTag(int $tag): PostsDemand
     {
         $this->tag = $tag;
         return $this;
     }
 
     /**
-     * @param array $tags
+     * @param int[] $tags
      * @return PostsDemand
      */
     public function setTags(array $tags): PostsDemand
@@ -319,7 +338,7 @@ class PostsDemand implements DemandInterface
     }
 
     /**
-     * @return array
+     * @return int[]
      */
     public function getExcluded(): array
     {
@@ -327,7 +346,7 @@ class PostsDemand implements DemandInterface
     }
 
     /**
-     * @param array $excluded
+     * @param int[] $excluded
      * @return PostsDemand
      */
     public function setExcluded(array $excluded): PostsDemand

@@ -21,10 +21,6 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
  */
 class TagRepository extends Repository
 {
-    /**
-     * default query settings from typo3
-     * @var Typo3QuerySettings
-     */
     protected $defaultQuerySettings;
     
     protected $defaultOrderings = [

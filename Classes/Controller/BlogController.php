@@ -136,15 +136,14 @@ class BlogController extends BaseController
     protected function prepareDemandObject(PostsDemand $demand = null): PostsDemand
     {
         // Use submitted demand object only if availalbe and allowDemandOverwrite is set.
-        $demand = $demand && $this->settings['allowDemandOverwrite'] ? $demand : new PostsDemand();
+        $demand = $demand !== null && $this->settings['allowDemandOverwrite'] ? $demand : new PostsDemand();
 
         if(!$demand->hasCategories()) {
             $demand->setCategories($this->categories);
         }
         if(!$demand->hasExcluded()) {
-            $demand->setExcluded(
-                GeneralUtility::trimExplode(',', $this->settings['exclude'])
-            );
+            $excluded = GeneralUtility::trimExplode(',', $this->settings['exclude']);
+            $demand->setExcluded(array_map(fn($item) => (int) $item, $excluded));
         }
         if(!$demand->hasLimit()) {
             $demand->setLimit($this->settings['limit'] ?? 0);

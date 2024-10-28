@@ -655,7 +655,7 @@ class Page extends AbstractEntity
      */
     public function isSiteRoot(): bool
     {
-        return (bool)$this->isSiteroot;
+        return $this->isSiteroot;
     }
 
     /**

@@ -80,13 +80,13 @@ class PageRepository extends Repository
                         /** @var Page $a */
                         /** @var Page $b */
                         //If publish date is set use this else create date
-                        if ($a->getPublishDate()) {
+                        if ($a->getPublishDate() > 0) {
                             $a = $a->getPublishDate();
                         } else {
                             $a = $a->getCreationDate();
                         }
 
-                        if ($b->getPublishDate()) {
+                        if ($b->getPublishDate()  > 0) {
                             $b = $b->getPublishDate();
                         } else {
                             $b = $b->getCreationDate();
@@ -114,12 +114,12 @@ class PageRepository extends Repository
         /**
          * @ToDo: Refactoring needed.
          */
-        if ($demand->hasCategories() || $demand->getCategory()) {
+        if ($demand->hasCategories() || $demand->getCategory() !== null) {
             $this->categories = [];
             $categoryIds = [];
 
             $allCategories = $demand->getCategories();
-            if($demand->getCategory()) {
+            if($demand->getCategory() !== null) {
                 $allCategories = array_merge($demand->getCategories(), [$demand->getCategory()]);
             }
 
@@ -137,7 +137,7 @@ class PageRepository extends Repository
             foreach ($posts as $post) {
                 /** @var Category $cat */
                 foreach ($post->getCategories() as $cat) {
-                    if (in_array($cat->getUid(), $categoryIds)) {
+                    if (in_array($cat->getUid(), $categoryIds, true)) {
                         $this->posts[] = $post;
                     }
                 }
@@ -146,7 +146,7 @@ class PageRepository extends Repository
 
         /** @var Page $post */
         foreach ($this->posts as $key => $post) {
-            if (in_array($post->getUid(), $demand->getExcluded())) {
+            if (in_array($post->getUid(), $demand->getExcluded(), true)) {
                     unset($this->posts[$key]);
             } else if ($demand->isArchived() && !$post->isArchived()) {
                 unset($this->posts[$key]);
@@ -159,7 +159,7 @@ class PageRepository extends Repository
             } else if ($demand->hasTags()) {
                 $includeInResult = false;
                 foreach ($post->getTags() as $tag) {
-                    if(in_array($tag->getUid(), $demand->getTags())) {
+                    if(in_array($tag->getUid(), $demand->getTags(), true)) {
                         $includeInResult = true;
                         break;
                     }
@@ -202,12 +202,12 @@ class PageRepository extends Repository
         foreach ($this->posts as $post) {
             if(
                 $post->getTags()->count() === 0 ||
-                in_array($post->getUid(), $excludeList)
+                in_array($post->getUid(), $excludeList, true)
             ) {
                 continue;
             }
             foreach ($post->getTags() as $tag) {
-                if(in_array($tag->getTitle(), $tags)) {
+                if(in_array($tag->getTitle(), $tags, true)) {
                     $amount = (array_key_exists($post->getUid(), $posts)) ?
                         $posts[$post->getUid()]['amount'] + 1 : 1;
 
