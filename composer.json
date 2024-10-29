@@ -2,7 +2,7 @@
   "name": "greenfieldr/golb",
   "type": "typo3-cms-extension",
   "description": "Golb - Blog The Page Way!",
-  "homepage": "https://github.com/nikonierer/golb.git",
+  "homepage": "https://github.com/greenfieldr/golb.git",
   "license": "GPL-3.0+",
   "require": {
     "typo3/cms-core": ">=13.4.0,<=13.4.99"
