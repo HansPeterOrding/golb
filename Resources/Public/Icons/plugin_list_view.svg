@@ -1,1 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M64 144a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM64 464a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm48-208a48 48 0 1 0 -96 0 48 48 0 1 0 96 0z"/></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 256 256"
+   version="1.1"
+   id="svg4"
+   width="256"
+   height="256"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs4" />
+  <path
+     fill="#ffffff"
+     d="M 1,1 H 15 V 15 H 1 Z"
+     id="path1" />
+  <path
+     fill="#999999"
+     d="M 1,1 V 15 H 15 V 1 Z M 2,2 H 14 V 14 H 2 Z"
+     id="path2" />
+  <path
+     fill="#666666"
+     d="M 3,3 H 13 V 5 H 3 Z"
+     id="path3" />
+  <path
+     id="path4"
+     style="fill:#b9b9b9;fill-opacity:1"
+     d="M 7.4277344,6 C 7.6424753,6.1531195 7.8211696,6.34509 7.9453125,6.5722656 8.0194501,6.7065149 8.0748007,6.8498443 8.1132812,7 H 13 V 6 Z M 8.1386719,8 C 8.0864955,8.2584568 7.9862808,8.5013666 7.8339844,8.7128906 v 0.00195 l -0.00195,0.00195 C 7.7652831,8.8082665 7.6503813,8.8534895 7.5703125,8.9335938 7.613093,8.9580524 7.6576703,8.9793863 7.703125,9 H 13 V 8 Z m 0.5019531,2 c 0.092992,0.264446 0.1386735,0.550322 0.1386719,0.847656 0,0.05137 -0.00138,0.101741 -0.00391,0.152344 H 13 V 10 Z M 8.5234375,12 C 8.3619931,12.323172 8.1388034,12.603308 7.859375,12.820312 l -0.00195,0.002 C 7.7762936,12.885896 7.6917234,12.945569 7.6054688,13 H 13 v -1 z" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:9.62794px;line-height:1.25;font-family:sans-serif;fill:#b9b9b9;fill-opacity:1;stroke:none;stroke-width:1"
+     x="2.0597718"
+     y="13"
+     id="text4"><tspan
+       id="tspan4"
+       x="2.0597718"
+       y="13"
+       style="font-size:9.62794px;fill:#b9b9b9;fill-opacity:1;stroke-width:1">B</tspan></text>
+</svg>
