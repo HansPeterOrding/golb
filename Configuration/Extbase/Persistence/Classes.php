@@ -32,6 +32,9 @@ return [
             'topPost' => [
                 'fieldName' => 'tx_golb_top_post'
             ],
+            'postType' => [
+                'fieldName' => 'tx_feeuroletter_post_type'
+            ]
         ],
     ],
     \Greenfieldr\Golb\Domain\Model\ContentElement::class => [

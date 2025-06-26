@@ -380,6 +380,8 @@ class Page extends AbstractEntity
      */
     protected bool $topPost = false;
 
+    protected string $postType = "";
+
     /**
      * The constructor
      */
@@ -1239,6 +1241,16 @@ class Page extends AbstractEntity
     public function setTopPost(bool $topPost): void
     {
         $this->topPost = $topPost;
+    }
+
+    public function getPostType(): string
+    {
+        return $this->postType;
+    }
+
+    public function setPostType(string $postType): void
+    {
+        $this->postType = $postType;
     }
 
 }
