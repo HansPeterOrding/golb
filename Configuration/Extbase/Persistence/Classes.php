@@ -34,6 +34,9 @@ return [
             ],
             'postType' => [
                 'fieldName' => 'tx_feeuroletter_post_type'
+            ],
+            'currentFocusTopic' => [
+                'fieldName' => 'tx_feeuroletter_current_focus_topic'
             ]
         ],
     ],

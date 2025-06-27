@@ -382,6 +382,8 @@ class Page extends AbstractEntity
 
     protected string $postType = "";
 
+    protected bool $currentFocusTopic = false;
+
     /**
      * The constructor
      */
@@ -1253,4 +1255,13 @@ class Page extends AbstractEntity
         $this->postType = $postType;
     }
 
+    public function isCurrentFocusTopic(): bool
+    {
+        return $this->currentFocusTopic;
+    }
+
+    public function setCurrentFocusTopic(bool $currentFocusTopic): void
+    {
+        $this->currentFocusTopic = $currentFocusTopic;
+    }
 }
