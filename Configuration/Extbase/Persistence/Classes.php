@@ -37,6 +37,9 @@ return [
             ],
             'currentFocusTopic' => [
                 'fieldName' => 'tx_feeuroletter_current_focus_topic'
+            ],
+            'hideImageInArticleDetailPage' => [
+                'fieldName' => 'tx_feeuroletter_hide_image_in_article_detail_page'
             ]
         ],
     ],

@@ -384,6 +384,8 @@ class Page extends AbstractEntity
 
     protected bool $currentFocusTopic = false;
 
+    protected bool $hideImageInArticleDetailPage = false;
+
     /**
      * The constructor
      */
@@ -1263,5 +1265,15 @@ class Page extends AbstractEntity
     public function setCurrentFocusTopic(bool $currentFocusTopic): void
     {
         $this->currentFocusTopic = $currentFocusTopic;
+    }
+
+    public function isHideImageInArticleDetailPage(): bool
+    {
+        return $this->hideImageInArticleDetailPage;
+    }
+
+    public function setHideImageInArticleDetailPage(bool $hideImageInArticleDetailPage): void
+    {
+        $this->hideImageInArticleDetailPage = $hideImageInArticleDetailPage;
     }
 }
